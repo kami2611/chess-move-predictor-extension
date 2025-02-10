@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "chessReview",
+    "version": "1.0",
+    "description": "A simple Chrome extension for reviewing chess game.",
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "permissions": ["activeTab"],
+    "content_scripts": [
+    {
+      "matches": ["https://www.chess.com/game/live/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
