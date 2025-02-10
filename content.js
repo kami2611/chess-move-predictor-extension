@@ -22,6 +22,5 @@ const observer = new MutationObserver(() => {
         }
     }
 });
-
 // Observe changes in the body (or a more specific parent container)
 observer.observe(document.body, { childList: true, subtree: true });

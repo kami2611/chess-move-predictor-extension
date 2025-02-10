@@ -14,7 +14,8 @@ app.use(express.urlencoded({extended:true}));
 let latestOpponentName = "";
 app.get('/home', (req, res)=>{
     res.send('hello');
-})
+});
+
 app.post('/api/opponent', async(req, res) => {
     const { opponentName } = req.body;
     if (!opponentName) {
@@ -38,12 +39,12 @@ app.post('/api/opponent', async(req, res) => {
         res.status(500).json({ error: 'Server error' });
     }
 
-
-
-    // res.json({ success: true, message: 'Opponent name received'});
-
 });
-
+app.post('/sendMove', (req, res)=>{
+    const {yourMove} = req.body;
+    console.log(yourMove);
+    res.json({ success: true, message: 'Move received' });
+})
 
 
 app.listen(3000, ()=>{
