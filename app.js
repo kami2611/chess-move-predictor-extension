@@ -82,8 +82,9 @@ app.post('/api/opponent', async(req, res) => {
 app.post('/sendMove', (req, res)=>{
     const {yourMove} = req.body;
     console.log(yourMove);
-    console.log(getBlacksMostPlayedMoveAgainst(everyGameFirstTwoMoves, yourMove));
-    res.json({ success: true, message: 'Move received' });
+    const mostPlayedMoveObject = getBlacksMostPlayedMoveAgainst(everyGameFirstTwoMoves, yourMove);
+    // console.log(getBlacksMostPlayedMoveAgainst(everyGameFirstTwoMoves, yourMove));
+    res.json(mostPlayedMoveObject);
 });
 app.listen(3000, ()=>{
     console.log("ON PORT 3000!");

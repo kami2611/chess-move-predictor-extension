@@ -27,7 +27,11 @@ document.getElementById('moveForm').addEventListener('submit', async (e) => {
             body: JSON.stringify({ yourMove: move })
         });
         const data = await response.json();
-        console.log('Server Response:', data);
+        const opponentsMoveSpan = document.getElementById("OpponentslikelyMove");
+        const timesOccuredSpan = document.getElementById("timesOccured");
+    opponentsMoveSpan.innerText = `Likely move: ${data.move}`;
+    timesOccuredSpan.innerText = `Times Occured: ${data.count}`;        
+        console.log('hey i received the most move object:', data);
     } catch (error) {
         console.error('Error sending move:', error);
     }
