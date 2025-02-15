@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "chessReview",
+    "name": " 1st move predictor chess",
     "version": "1.0",
-    "description": "A simple Chrome extension for reviewing chess game.",
+    "description": "Opponents first move predictor based on their played games data.",
     "action": {
       "default_popup": "popup.html"
     },
