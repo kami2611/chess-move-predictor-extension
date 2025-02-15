@@ -7,7 +7,9 @@ const observer = new MutationObserver(() => {
         if (opponentsName && opponentsName.innerText.trim() !== 'Opponent' && opponentsName.innerText.trim() !== 'kami2611') {
             const name = opponentsName.innerText.trim();
             console.log("Opponent's Name:", name);
-            
+            chrome.storage.local.set({ opponentName: name }, () => {
+                console.log("opponent name set in local storage!");
+            });
             // ✅ Send data to your MERN server
             fetch('http://localhost:3000/api/opponent', {
                 method: 'POST',

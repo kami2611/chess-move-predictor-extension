@@ -1,3 +1,21 @@
+document.addEventListener("DOMContentLoaded", () => {
+    // Fetch the opponent's name initially when the popup opens
+    chrome.storage.local.get("opponentName", function(result) {
+        if (result.opponentName) {  
+            document.getElementById('opponent_name').innerText = result.opponentName;
+        }
+    });
+
+    // Listen for changes in storage and update UI dynamically
+    chrome.storage.onChanged.addListener((changes, area) => {
+        if (area === "local" && changes.opponentName) {
+            document.getElementById('opponent_name').innerText =changes.opponentName.newValue;
+            console.log("Opponent name updated dynamically:", changes.opponentName.newValue);
+        }
+    });
+});
+
+
 document.getElementById('moveForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
