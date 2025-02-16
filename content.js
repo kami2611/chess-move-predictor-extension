@@ -3,7 +3,7 @@ console.log('Content JS is running on this page!');
 const observer = new MutationObserver(() => {
     const opponentNamediv = document.querySelector('.user-tagline-component');
     if (opponentNamediv) {
-        const opponentsName = opponentNamediv.querySelector("a");
+        const opponentsName = document.querySelector('.user-username-component.user-username-white.user-username-link.user-tagline-username');
         if (opponentsName && opponentsName.innerText.trim() !== 'Opponent' && opponentsName.innerText.trim() !== 'kami2611') {
             const name = opponentsName.innerText.trim();
             console.log("Opponent's Name:", name);
